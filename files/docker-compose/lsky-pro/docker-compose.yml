@@ -1,0 +1,27 @@
+version: "3"
+services:
+  lsky-pro:
+    container_name: lsky-pro #容器名称
+    image: dko0/lsky-pro:latest #所用镜像
+    restart: always
+    ports:
+      - 7791:80 #端口映射7791可以改
+    volumes:
+      - ./data:/var/www/html #映射到本地
+    environment: #环境配置
+      - MYSQL_HOST=lsky-pro-db #mysql数据库
+      - MYSQL_DATABASE=lsky-pro-db #数据库名
+      - MYSQL_USER=lsky-pro-db #数据库用户名
+      - MYSQL_PASSWORD=lsky-pro-db #数据库密码
+
+  lsky-pro-db:
+    container_name: lsky-pro-db #容器名称
+    image: mysql #mysql 镜像
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql #映射到本地
+    environment:
+      - MYSQL_DATABASE=lsky-pro-db #数据库名
+      - MYSQL_USER=lsky-pro-db #数据库用户名
+      - MYSQL_PASSWORD=lsky-pro-db #数据库密码
+      - MYSQL_ROOT_PASSWORD=lsky-pro-db #数据库ROOT密码
