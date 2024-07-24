@@ -1,9 +1,9 @@
-version: "2.1"
+version: "3"
 services:
   syncthing:
     image: lscr.io/linuxserver/syncthing:latest
     container_name: syncthing
-    hostname: syncthing #optional
+    hostname: syncthing # optional
     environment:
       - PUID=0
       - PGID=0
@@ -12,8 +12,8 @@ services:
       - ./config:/config
       - ./data:/data
     ports:
-      - 8384:8384
-      - 22000:22000/tcp
-      - 22000:22000/udp
-      - 21027:21027/udp
+      - 8384:8384 # Web UI
+      - 22000:22000/tcp # TCP file transfers
+      - 22000:22000/udp # QUIC file transfers
+      - 21027:21027/udp # Receive local discovery broadcasts
     restart: unless-stopped
