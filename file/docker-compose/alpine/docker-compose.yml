@@ -1,0 +1,10 @@
+services:
+  alpine:
+    image: alpine:latest
+    container_name: alpine
+    command: sh -c 'while true; do continue; done'
+    deploy:
+      resources:
+        limits:
+          cpus: "0.35"
+    network_mode: none
