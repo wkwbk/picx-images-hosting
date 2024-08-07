@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 services:
   3x-ui:
     image: ghcr.io/mhsanaei/3x-ui:latest
@@ -8,7 +8,8 @@ services:
       - ./db/:/etc/x-ui/
       - ./cert/:/root/cert/
     environment:
-      XRAY_VMESS_AEAD_FORCED: "false"
+      - XRAY_VMESS_AEAD_FORCED=false
+      - TZ=Asia/Shanghai
     tty: true
     network_mode: host
     restart: unless-stopped

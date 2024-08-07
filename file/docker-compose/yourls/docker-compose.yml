@@ -1,4 +1,4 @@
-version: "3.5"
+version: "3.8"
 services:
   yourls-db:
     container_name: yourls-db
@@ -28,7 +28,7 @@ services:
       YOURLS_DB_NAME: yourls-db
       YOURLS_USER: admin #面板登录用户名
       YOURLS_PASS: admin #面板登录密码
-      YOURLS_SITE: https://example.com #面板域名
+      YOURLS_SITE: https://ijg.cc #面板域名
       YOURLS_HOURS_OFFSET: 8
     links:
       - yourls-db:yourls-db
