@@ -15,7 +15,7 @@ services:
 
   lsky-pro-db:
     container_name: lsky-pro-db #容器名称
-    image: mysql #mysql 镜像
+    image: mysql:8.0.32 #mysql 镜像
     restart: always
     volumes:
       - ./mysql:/var/lib/mysql #映射到本地
