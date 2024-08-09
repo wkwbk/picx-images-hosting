@@ -21,4 +21,4 @@ services:
       - WG_DEFAULT_DNS=1.1.1.1 # 客户端将使用的 DNS 服务器
       - WG_HOST=0.0.0.0 # 这里输入服务器的公网 IP
       - PASSWORD=password # 这里输入你的密码
-      - UI_CHART_TYPE=2 # 折线图
+      - UI_CHART_TYPE=2 # 图表样式
