@@ -1,7 +1,7 @@
 services:
   wg-easy:
     container_name: wg-easy
-    image: ghcr.io/wg-easy/wg-easy
+    image: ghcr.io/wg-easy/wg-easy:latest
     restart: unless-stopped
     sysctls:
       - net.ipv4.ip_forward=1
