@@ -1,27 +1,65 @@
 # Java 环境变量配置
 
+## 下载
+
 下载安装包，安装 JDK 到本地电脑中。
 
-我的电脑->右键->属性->左侧菜单->高级系统设置->环境变量
+- [下载链接](https://cloud.lisir.me/Teambition/软件/编程类/Java)
 
-系统变量->新建
+## 环境变量配置
 
-```text
-变量名：JAVA_HOME
-变量值：C:\Programs\Java\jdk1.8.0_341 #变量值为 JDK 安装路径，根据自己安装路径更改
+### 设置 JAVA_HOME
+
+- 右键 "此电脑"，选择 "属性"。
+- 点击左侧的 "高级系统设置"。
+- 在弹出的窗口中，点击 "环境变量"。
+- 在 "系统变量" 区域，找到 JAVA_HOME 变量。
+- 如果没有，点击 "新建" 创建它。
+
+> - 变量名：`JAVA_HOME`
+> - 变量值：`C:\myEnvironment\Java\jdk`
+>
+> 注意：变量值为 JDK 安装路径，根据自己安装路径更改
+
+自 JDK1.5 以后版本就不用设置 CLASSPATH 环境变量，下面这一步可以省略。
+
+> - 变量名：`CLASSPATH`
+> - 变量值：`.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;`
+>
+> 注意：变量值不要漏了开头的点号
+
+### 设置 PATH
+
+- 在同一个 "环境变量" 窗口中，找到 Path 变量，选中并点击 "编辑"。
+
+> 添加以下两个变量值
+>
+> - `%JAVA_HOME%\bin`
+> - `%JAVA_HOME%\jre\bin`
+>
+> 注意：从 Java 9（及其后续版本）开始，不再需要单独配置 JRE 环境变量，因为 JDK 本身包含了运行 Java 程序所需的所有组件。
+
+## JDK 版本管理
+
+在 Windows 中使用 `mklink` 命令创建软链接并更新环境变量，你可以方便地在多个 JDK 版本之间切换。每次切换 JDK 版本时，只需要更新软链接即可。
+
+### 创建软连接
+
+打开命令提示符或 PowerShell，并以管理员身份运行。
+
+```cmd
+mklink /D "C:\myEnvironment\Java\jdk" "C:\myEnvironment\Java\jdk-17.0.12"
 ```
 
-系统变量->打开 Path 变量->新建
+- `/D` 参数表示创建目录的符号链接。
+- 第一个路径 "C:\myEnvironment\Java\jdk" 是软链接的目标路径。
+- 第二个路径 "C:\myEnvironment\Java\jdk-17.0.12" 是实际 JDK 版本的路径。
 
-```text
-#添加以下两个变量值
-%JAVA_HOME%\bin
-%JAVA_HOME%\jre\bin
-```
+### 切换 JDK 版本
 
-系统变量->新建
+当你需要切换到另一个 JDK 版本时，只需删除并重新创建软链接。
 
-```text
-变量名：CLASSPATH
-变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar; #不要漏了开头那一点
+```cmd
+rmdir /S /Q "C:\myEnvironment\Java\jdk"
+mklink /D "C:\myEnvironment\Java\jdk" "C:\myEnvironment\Java\jdk-22.0.2"
 ```
