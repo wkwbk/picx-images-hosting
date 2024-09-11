@@ -1,7 +1,7 @@
 services:
   pingvin-share:
     container_name: pingvin-share
-    image: stonith404/pingvin-share
+    image: "stonith404/pingvin-share:latest"
     restart: unless-stopped
     ports:
       - 3000:3000
