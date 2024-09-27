@@ -1,7 +1,7 @@
 services:
   nginx-proxy-manager:
     container_name: nginx-proxy-manager
-    image: "chishin/nginx-proxy-manager-zh:latest"
+    image: "chishin/nginx-proxy-manager-zh:release"
     restart: always
     ports:
       - "80:80"
