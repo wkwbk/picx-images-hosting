@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password #数据库密码
+      - TZ=Asia/Shanghai
+      - SET_CONTAINER_TIMEZONE=true
+      - CONTAINER_TIMEZONE=Asia/Shanghai
+    volumes:
+      - ./conf:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+      - ./logs:/var/log/mysql
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 3306:3306
+    restart: always
