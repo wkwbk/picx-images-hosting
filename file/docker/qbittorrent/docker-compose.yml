@@ -9,7 +9,7 @@ services:
       - 6881:6881/udp
     volumes:
       - ./config:/config
-      - /root/docker/alist/data/local/qbittorrent:/downloads
+      - ../openlist/data/local/qbittorrent:/downloads
     environment:
       - PUID=1000
       - PGID=1000
