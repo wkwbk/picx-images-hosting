@@ -1,12 +1,12 @@
 services:
-  alist:
-    container_name: alist
-    image: "xhofe/alist:latest"
+  openlist:
+    container_name: openlist
+    image: "openlistteam/openlist:beta"
     restart: always
     ports:
       - "5244:5244"
     volumes:
-      - "./data:/opt/alist/data"
+      - "./data:/opt/openlist/data"
     environment:
       - PUID=0
       - PGID=0
