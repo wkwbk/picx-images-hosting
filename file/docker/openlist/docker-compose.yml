@@ -1,7 +1,7 @@
 services:
   openlist:
     container_name: openlist
-    image: "openlistteam/openlist:beta"
+    image: "openlistteam/openlist:latest"
     restart: always
     ports:
       - "5244:5244"
