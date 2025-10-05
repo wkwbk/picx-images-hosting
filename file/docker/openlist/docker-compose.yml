@@ -2,13 +2,11 @@ services:
   openlist:
     container_name: openlist
     image: "openlistteam/openlist:latest"
+    user: '0:0'
     restart: always
     ports:
       - "5244:5244"
     volumes:
       - "./data:/opt/openlist/data"
     environment:
-      - PUID=0
-      - PGID=0
       - UMASK=022
-      - TZ=Asia/Shanghai
