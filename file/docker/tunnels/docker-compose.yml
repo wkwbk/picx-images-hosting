@@ -1,6 +1,6 @@
 services:
-    cloudflared:
-        image: cloudflare/cloudflared:latest
-        container_name: tunnels
-        restart: always
-        command: tunnel --no-autoupdate run --token TOKEN # 将 TOKEN 替换为你的令牌
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: tunnels
+    restart: always
+    command: tunnel --no-autoupdate run --token TOKEN # 将 TOKEN 替换为你的令牌
