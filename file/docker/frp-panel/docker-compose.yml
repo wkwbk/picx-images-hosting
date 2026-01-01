@@ -1,6 +1,7 @@
 services:
   frpp-master:
     image: vaalacat/frp-panel:latest
+    container_name: frpp-master
     network_mode: host
     environment:
       APP_GLOBAL_SECRET: your_secret  # 随便输入一些随机字符，不要泄露
