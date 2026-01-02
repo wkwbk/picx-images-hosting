@@ -1,0 +1,16 @@
+services:
+  rabbitmq:
+    restart: always
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: rabbit
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      TZ: Asia/Shanghai
+      RABBITMQ_DEFAULT_USER: username
+      RABBITMQ_DEFAULT_PASS: password
+    volumes:
+      - ./data:/var/lib/rabbitmq
+      - ./conf:/etc/rabbitmq
