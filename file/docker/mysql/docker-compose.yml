@@ -2,8 +2,9 @@ services:
   mysql:
     image: mysql:latest
     container_name: mysql
+    command: --lower_case_table_names=1
     environment:
-      - MYSQL_ROOT_PASSWORD=password #数据库密码
+      - MYSQL_ROOT_PASSWORD=password # root 用户密码
       - TZ=Asia/Shanghai
       - SET_CONTAINER_TIMEZONE=true
       - CONTAINER_TIMEZONE=Asia/Shanghai
