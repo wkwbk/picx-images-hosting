@@ -1,0 +1,18 @@
+services:
+  nacos:
+    image: nacos/nacos-server:latest
+    container_name: nacos
+    environment:
+      - MODE=standalone # 指定为单机模式
+      - NACOS_AUTH_ENABLE=true
+      - NACOS_AUTH_IDENTITY_KEY=Authorization
+      - NACOS_AUTH_IDENTITY_VALUE=GUPlieHLK8UNzGxzY2f4dsN7Iw/p+Dg79PH+vSZo6J8=
+      - NACOS_AUTH_TOKEN=GUPlieHLK8UNzGxzY2f4dsN7Iw/p+Dg79PH+vSZo6J8=
+      - PREFER_HOST_MODE=hostname
+    ports:
+      - "8848:8848"
+      - "8080:8080"
+      - "9848:9848"
+      - "9849:9849"
+    volumes:
+      - ./data/:/home/nacos/data
