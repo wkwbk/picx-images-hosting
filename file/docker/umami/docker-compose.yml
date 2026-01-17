@@ -1,6 +1,7 @@
 services:
   umami:
     image: ghcr.io/umami-software/umami:mysql-latest
+    container_name: umami
     ports:
       - "3000:3000"
     environment:
